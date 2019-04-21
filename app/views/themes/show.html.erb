@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @theme.name %>
+</p>
+<p>
+  <strong>产品描述</strong>
+    <%= @theme.description %>
+</p>
+<p>
+  <strong>照片</strong>
+  <%= @theme.topic_image.name if @theme.topic_image %>
+</p>
+<p>
+  <strong>分类<strong>
+  <%= @theme.head_image.name if @theme.head_image %>
+</p>
+
+<%= link_to 'Edit', edit_theme_path(@theme) %> |
+<%= link_to 'Back', themes_path %>

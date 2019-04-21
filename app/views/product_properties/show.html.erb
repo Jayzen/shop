@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product_property.name %>
+</p>
+<p>
+  <strong>detail</strong>
+  <%= @product_property.detail %>
+</p>
+<p>
+  <strong>产品名称</strong>
+    <%= @product_property.product.name if @product_property.product  %>
+</p>
+
+<%= link_to 'Edit', edit_product_property_path(@product_property) %> |
+<%= link_to 'Back', product_properties_path %>

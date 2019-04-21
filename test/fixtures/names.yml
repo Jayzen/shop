@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1.5
+  stock: 1
+  deleted_time: MyString
+  category_id: 1
+  main_img_url: MyString
+  summary: MyString
+  img_id: 1
+
+two:
+  price: 1.5
+  stock: 1
+  deleted_time: MyString
+  category_id: 1
+  main_img_url: MyString
+  summary: MyString
+  img_id: 1

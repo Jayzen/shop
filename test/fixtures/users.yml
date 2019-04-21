@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  openid: MyString
+  nickname: MyString
+  deleted_time: 2019-04-05 15:28:52
+
+two:
+  openid: MyString
+  nickname: MyString
+  deleted_time: 2019-04-05 15:28:52

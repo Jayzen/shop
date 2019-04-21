@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  img_id: 1
+  deleted_time: 2019-04-04 15:14:51
+  order: 1
+  product_id: 1
+
+two:
+  img_id: 1
+  deleted_time: 2019-04-04 15:14:51
+  order: 1
+  product_id: 1

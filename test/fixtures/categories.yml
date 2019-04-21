@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  topic_img_id: 1
+  deleted_time: 2019-04-04 10:25:21
+  description: MyText
+
+two:
+  name: MyString
+  topic_img_id: 1
+  deleted_time: 2019-04-04 10:25:21
+  description: MyText

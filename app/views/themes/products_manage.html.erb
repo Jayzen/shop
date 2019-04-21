@@ -1,0 +1,12 @@
+<ul>
+  <% @products.each do |product| %>
+    <li><%= product.id%>.<%=product.name %>
+        <%= link_to "delete product", delete_product_theme_path(product) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_for @theme, url: add_product_theme_path(@theme), method: :post do |f| %>
+  <%= f.collection_select :products, Product.all, :id, :name%>
+  <%= f.submit "add product"%>
+<% end %>

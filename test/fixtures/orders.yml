@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_no: MyString
+  user_id: 1
+  deleted_time: 2019-04-09 16:10:37
+  total_price: 
+  total_price: 
+  status: 1
+  snap_img: MyString
+  snap_name: MyString
+  snap_items: MyString
+  snap_address: MyString
+
+two:
+  order_no: MyString
+  user_id: 1
+  deleted_time: 2019-04-09 16:10:37
+  total_price: 
+  total_price: 
+  status: 1
+  snap_img: MyString
+  snap_name: MyString
+  snap_items: MyString
+  snap_address: MyString
