@@ -1,7 +1,8 @@
 module API
   module Entities
-    class BannerItem < Grape::Entity
-      expose :product, using: API::Entities::ProductBanner
+    class ProductCategory < Grape::Entity
+      expose :id
+      expose :name
       expose :image, using: API::Entities::Image
     end
   end

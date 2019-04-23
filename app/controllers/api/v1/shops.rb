@@ -21,10 +21,9 @@ module API
       end
       get 'banners/:id' do
         @banner = Banner.find(params[:id])
-        if @banner
-          banner = present @banner, with: API::Entities::Banner
-          build_response code: 0, data: banner
-        end
+        @banner_items = @banner.banner_items.includes(:product, :image)
+        banner_items = present @banner_items, with: API::Entities::BannerItem
+        build_response code: 0, data: banner_items
       end
 
       desc 'find all themes'
@@ -39,7 +38,7 @@ module API
         use :id_validator
       end
       get 'themes/:id' do
-        @theme = Theme.includes(:products, :head_image, :topic_image).find(params[:id])
+        @theme = Theme.includes([products: :image], :head_image).find(params[:id])
         if @theme
           theme = present @theme, with: API::Entities::Theme
           build_response code: 0, data: theme
@@ -48,8 +47,8 @@ module API
 
       desc 'find recent product'
       get 'products/recent' do
-        @products = Product.all.limit(10)
-        products = present @products, with: API::Entities::Product
+        @products = Product.includes(:image).limit(10)
+        products = present @products, with: API::Entities::ProductTheme
         build_response code: 0, data: products
       end
 
@@ -62,14 +61,14 @@ module API
 
       desc 'find products under category'
       get 'categories/:id' do
-        @category = Category.find(params[:id])
+        @category = Category.includes(:topic_image, [products: :image]).find(params[:id])
         category = present @category, with: API::Entities::CategoryProducts
         build_response code: 0, data: category
       end
 
       desc 'find single product'
       get 'products/:id' do
-        @product = Product.includes(:product_images, :product_properties).find(params[:id])
+        @product = Product.includes(:image, :product_properties, [product_images: :images]).find(params[:id])
         product = present @product, with: API::Entities::Product
         build_response code: 0, data: product
       end

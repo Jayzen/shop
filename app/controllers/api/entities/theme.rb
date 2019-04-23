@@ -3,8 +3,7 @@ module API
     class Theme < Grape::Entity
       expose :id
       expose :head_image, using: API::Entities::Image
-      expose :topic_image, using: API::Entities::Image
-      expose :products, using: API::Entities::Product
+      expose :products, using: API::Entities::ProductTheme
     end
   end
 end

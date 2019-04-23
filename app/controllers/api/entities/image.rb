@@ -5,7 +5,11 @@ module API
 
       private
         def link
-          link = "https://zhengjiajun.com" + object.link.url.to_s
+          if Rails.env == "production"
+            link = "https://zhengjiajun.com" + object.link.url.to_s
+          else
+            link = "http://localhost:3000" + object.link.url.to_s
+          end
         end
     end
   end

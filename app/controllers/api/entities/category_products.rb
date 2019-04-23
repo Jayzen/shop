@@ -4,7 +4,7 @@ module API
       expose :id
       expose :name
       expose :topic_image, using: API::Entities::Image
-      expose :products, using: API::Entities::Product
+      expose :products, using: API::Entities::ProductCategory
     end
   end
 end
