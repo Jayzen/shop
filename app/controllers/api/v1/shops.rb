@@ -68,7 +68,7 @@ module API
 
       desc 'find single product'
       get 'products/:id' do
-        @product = Product.includes(:image, :product_properties, [product_images: :images]).find(params[:id])
+        @product = Product.includes(:image, :product_properties, [product_images: :image]).find(params[:id])
         product = present @product, with: API::Entities::Product
         build_response code: 0, data: product
       end
