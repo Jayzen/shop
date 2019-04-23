@@ -5,7 +5,7 @@ module API
 
       private
         def link
-          link = "http://localhost:3000" + object.link.url.to_s
+          link = "https://zhengjiajun.com" + object.link.url.to_s
         end
     end
   end
