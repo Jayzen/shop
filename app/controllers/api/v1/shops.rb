@@ -133,7 +133,9 @@ module API
 
       desc 'get user address'
       get 'user/address' do
-        if user = User.first
+        cache = cache_value
+        user_id = cache["user_id"]
+        if user = User.find(user_id)
           user_address = user.user_address
           user_address = present user_address, with: API::Entities::UserAddress
         else
