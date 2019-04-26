@@ -77,7 +77,7 @@ module API
       params do
         requires :code, type: String
       end
-      post '/get_openid' do
+      post '/token/achieve' do
         openid_message = User.get_openid(params[:code])
         if openid_message["errcode"]
           error!({code: 1, message: 'opendid获取错误'})
@@ -96,6 +96,18 @@ module API
         end
       end
 
+      desc 'verify token'
+      params do 
+        requires :token, type: String
+      end
+      post '/token/verify' do
+        if Rails.cache.fetch(params[:token])
+          {isValid: true}
+        else
+          {isValid: false}
+        end
+      end
+
       desc 'post user address'
       params do 
         requires :name, type: String
@@ -103,6 +115,7 @@ module API
         requires :province, type: String
         requires :city, type: String
         requires :country, type: String
+        requires :detail, type: String
       end
       post '/address' do
         cache = cache_value
@@ -117,6 +130,17 @@ module API
           error!({code: 1, message: '该用户无权限'})
         end
       end
+
+      desc 'get user address'
+      get 'user/address' do
+        if user = User.first
+          user_address = user.user_address
+          user_address = present user_address, with: API::Entities::UserAddress
+        else
+          error!({code: 1, message: '用户不存在'})
+        end
+      end
+
 
       desc 'post user order'
       post '/order' do
