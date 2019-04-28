@@ -88,7 +88,7 @@ module API
             @user = User.create(openid: openid_message["openid"])
             user_id = @user.id
           end
-          token = User.generate_token
+          token = User.generate_token(32)
           cache(key: token, expires_in: 12.hours) do
             { openid_message: openid_message, user_id: user_id, scope: User::Level::Ordinary }
           end
@@ -145,10 +145,19 @@ module API
 
 
       desc 'post user order'
+      params do
+        #todo 参数验证
+        #{"products": [{"product_id": 2, "count": 1}, {"product_id": 2, "count": 3}]}
+        requires :products, type: Array do
+          requires :product_id, type: Integer
+          requires :count, type: Integer
+        end
+      end
       post '/order' do
         cache = cache_value
         user_id = cache["user_id"]
-        validate_create_order(params["products"], user_id)
+        validate_order(params["products"], user_id)
+        create_order(params["products"], user_id)
       end
     end
   end

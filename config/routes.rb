@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :banner_items
   resources :users
   resources :user_addresses
+  resources :orders
+  resources :order_products
   resources :themes do
     get 'products_manage', on: :member
     post 'add_product', on: :member

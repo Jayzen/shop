@@ -3,7 +3,8 @@ class CreateOrders < ActiveRecord::Migration[5.2]
     create_table :orders do |t|
       t.string :order_no
       t.integer :user_id
-      t.integer :total_price
+      t.decimal :total_price, precision: 5, scale: 2
+      t.integer :total_count
       t.integer :status
       t.string :snap_img
       t.string :snap_name

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>order_no:</strong>
+  <%= @order.order_no %>
+</p>
+<p>
+  <strong>snap image</strong>
+  <%= image_tag @order.snap_img if @order.snap_img %>
+</p>
+<p>
+  <strong>status<strong>
+  <%= @order.status %>
+</p>
+<p>
+  <strong>snap name</strong>
+  <%= @order.snap_name %>
+</p>
+<p>
+<strong>snap address</strong>
+  <%= @order.snap_address %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

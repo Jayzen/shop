@@ -1,0 +1,32 @@
+<%= form_with(model: order_product, local: true) do |form| %>
+  <% if order_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order_product.errors.count, "error") %> prohibited this order_product from being saved:</h2>
+
+      <ul>
+      <% order_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :order_id %>
+    <%= form.collection_select :order_id, Order.all, :id, :order_no %>
+  </div> 
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.collection_select :product_id, Product.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :count %>
+    <%= form.number_field :count %>
+  </div> 
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

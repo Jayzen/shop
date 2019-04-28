@@ -15,11 +15,15 @@ class User < ApplicationRecord
     ActiveSupport::JSON.decode(response)
   end
 
-  def self.generate_token
+  def self.generate_token len = 8
     a = lambda { rand(36).to_s(36) }
     token = ""
-    32.times { |t| token << a.call.to_s }
+    len.times { |t| token << a.call.to_s }
     token
+  end
+
+  def self.generate_order_uuid
+    Date.today.to_s.split('-').join()[2..-1] << generate_token(8).upcase
   end
 end
 
