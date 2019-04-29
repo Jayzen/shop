@@ -70,7 +70,6 @@ module API
                total_price += order_products[index]["count"]*stock_products[index][1]*100
              end
              total_price = total_price/100
-
              #计算总的订单数
              order_products.each do |product|
                total_count += product["count"]

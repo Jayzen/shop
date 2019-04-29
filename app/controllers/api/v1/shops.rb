@@ -146,8 +146,7 @@ module API
 
       desc 'post user order'
       params do
-        #todo 参数验证
-        #{"products": [{"product_id": 2, "count": 1}, {"product_id": 2, "count": 3}]}
+        #参数验证{"products": [{"product_id": 2, "count": 1}, {"product_id": 2, "count": 3}]}
         requires :products, type: Array do
           requires :product_id, type: Integer
           requires :count, type: Integer
