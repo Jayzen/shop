@@ -6,11 +6,13 @@ Rails.application.routes.draw do
 
   resources :images
   resources :categories
-  resources :products
-  resources :product_properties
-  resources :product_images
-  resources :banners
-  resources :banner_items
+  resources :products do
+    resources :product_properties
+    resources :product_images
+  end
+  resources :banners do
+    resources :banner_items
+  end
   resources :users
   resources :user_addresses
   resources :orders

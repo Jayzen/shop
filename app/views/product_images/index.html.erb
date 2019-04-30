@@ -14,9 +14,9 @@
     <% @product_images.each do |product_image| %>
       <tr>
         <td><%= product_image.id %></td>
-        <td><%= link_to 'Show', product_image %></td>
-        <td><%= link_to 'Edit', edit_product_image_path(product_image) %></td>
-        <td><%= link_to 'Destroy', product_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', product_product_image_path(@product, product_image) %></td>
+        <td><%= link_to 'Edit', edit_product_product_image_path(@product, product_image) %></td>
+        <td><%= link_to 'Destroy', product_product_image_path(@product, product_image), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New product_image', new_product_image_path %>
+<%= link_to 'New product_image', new_product_product_image_path(@product) %>

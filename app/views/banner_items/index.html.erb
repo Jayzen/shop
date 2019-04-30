@@ -14,9 +14,9 @@
     <% @banner_items.each do |banner_item| %>
       <tr>
         <td><%= banner_item.name %></td>
-        <td><%= link_to 'Show', banner_item %></td>
-        <td><%= link_to 'Edit', edit_banner_item_path(banner_item) %></td>
-        <td><%= link_to 'Destroy', banner_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', banner_banner_item_path(@banner, banner_item) %></td>
+        <td><%= link_to 'Edit', edit_banner_banner_item_path(@banner, banner_item) %></td>
+        <td><%= link_to 'Destroy', banner_banner_item_path(@banner, banner_item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New banner_item', new_banner_item_path %>
+<%= link_to 'New banner_item', new_banner_banner_item_path(@banner) %>

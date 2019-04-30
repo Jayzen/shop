@@ -2,5 +2,5 @@
 
 <%= render 'form', banner_item: @banner_item %>
 
-<%= link_to 'Show', @banner_item %> |
-<%= link_to 'Back', banner_items_path %>
+<%= link_to 'Show', banner_banner_item_path(@banner, @banner_item) %> |
+<%= link_to 'Back', banner_banner_items_path(@banner) %>
